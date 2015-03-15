@@ -3,7 +3,7 @@ using System.Collections;
 
 public class InCube : MonoBehaviour {
 
-	public string flg= "0";
+	public string HoleNo= "0";
 	private GameObject _BallShoot; 
 	void  Start (){
 		_BallShoot = GameObject.Find("BallShoot");
@@ -17,16 +17,13 @@ public class InCube : MonoBehaviour {
 	{
 		renderer.material.color = new Color(1, 0, 0, 1);
 		Destroy(collision.gameObject);
-		this.InBall(flg);
+		this.InBall(HoleNo);
 
-		_BallShoot.SendMessage("InBall", flg);
-		//BallShoot.InBall(flg);
-		
-
+		_BallShoot.SendMessage("InBall", HoleNo);
 	}
 	
-	void InBall ( string flg  ){
-		GameObject obj= GameObject.Find("kekka" + flg);
-		obj.renderer.material.color = new Color(1, 0, 0, 1);
+	void InBall (string holeNo){
+		GameObject objBingoBoard= GameObject.Find("kekka" + holeNo);
+		objBingoBoard.renderer.material.color = new Color(1, 0, 0, 1);
 	}
 }

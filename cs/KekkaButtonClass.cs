@@ -3,11 +3,12 @@ using System.Collections;
 
 public class KekkaButtonClass : MonoBehaviour {
 
-	public GameObject objRetryButton;
-	public GameObject objExitButton;
+	public GameObject ObjRetryButton;
+	public GameObject ObjExitButton;
 
-	const int PLAY_COIN = 3;
-	public IEnumerator clickRetry ()
+	private const int PLAY_COIN = 3;
+
+	public IEnumerator ClickRetry ()
 	{
 		int coin = PlayerPrefs.GetInt("coins");
 		PlayerPrefs.SetInt("coins",coin - 3);
@@ -26,7 +27,7 @@ public class KekkaButtonClass : MonoBehaviour {
 		Application.LoadLevel("Furiko");
 	}
 
-	public void clickCollect()
+	public void ClickCollect()
 	{
 		int winCoin = PlayerPrefs.GetInt("Winsuu");
 		
@@ -46,8 +47,8 @@ public class KekkaButtonClass : MonoBehaviour {
 		GameObject objCollectButton = GameObject.Find("CollectButton");
 		objCollectButton.SetActiveRecursively(false);
 
-		objRetryButton.SetActiveRecursively(true);
-		objExitButton.SetActiveRecursively(true);
+		ObjRetryButton.SetActiveRecursively(true);
+		ObjExitButton.SetActiveRecursively(true);
 	}
 
 	public void clickExit ()

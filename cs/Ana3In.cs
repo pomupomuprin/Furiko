@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+/// <summary>
+/// Ana3 in.
+/// </summary>
 public class Ana3In : MonoBehaviour {
 
 	public int InOrOut ;
-	bool flgCollition = false;
-	int time = 0;
+	private bool m_flgCollition = false;
+	private int time = 0;
 	
 	void Update(){
 
-		if (flgCollition)
+		if (m_flgCollition)
 		{
 			time++;
 			if (time > 120)
 			{
 				Application.LoadLevel("Result");
-				flgCollition = false;
+				m_flgCollition = false;
 			}
 		}
 	}
+
 	private void OnCollisionEnter(Collision collision)
 	{
 		Destroy(collision.gameObject);
@@ -33,7 +36,7 @@ public class Ana3In : MonoBehaviour {
 			//win
 			PlayerPrefs.SetInt("saraKekka", 1);
 		}
-		flgCollition = true;
+		m_flgCollition = true;
 	}	
 
 }
